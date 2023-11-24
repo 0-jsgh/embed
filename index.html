@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+*{margin: 0; padding: 0; box-sizing:border-box;}
+body {background-color: #303030; text-align: center;}
+
+h1{
+    color: white;
+    margin: 15px 0;
+}
+
+#result {
+    font-size:24px;
+    height: 24px;
+    color: white;
+    width: 90%;
+    margin: 20px auto;
+    overflow:hidden;
+}
+
+#generar {
+    font-size: 20px;
+    background-color: black;
+    font-weight: bold;
+    color: white;
+    width: 250px;
+    margin: 0 auto; padding: 10px 0;
+    border-radius: 12px;
+    border:2px solid white;
+}
+
+#generar:hover {
+    background-color: white;
+    color:black;
+    border: 2px black solid;
+}
+
+#urlInput {
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width:90%;
+    margin: 10px 0; padding:12px;
+    text-align: center;
+}
+        
+    </style>
+    <title>Youtube Embed</title>
+</head>
+<body>
+    
+  <h1>YouTube Embed</h1>
+  
+  <input type="text" id="urlInput" placeholder="Ingrese Texto...">
+  
+  <button onclick="acorVideo()" id="generar">Generar Embed</button>
+  
+  <div id="result"></div>
+  
+  <!-- Botón para copiar texto -->
+    <button onclick="abrirEnlace()" id="generar">Abrir</button>
+
+    <script>
+  function abrirEnlace() {
+    // Obtén el contenido del div
+    var enlace = document.getElementById('result').innerText;
+    
+    if (enlace.includes("youtube.com")) {
+        window.open('http://' + enlace, '_blank');
+    } else {
+        result = "No es un enlace de YouTube";
+    }
+  }
+    </script>
+    <script>
+    function acorVideo() {
+      const url = document.getElementById('urlInput').value;
+      let result = "youtube.com/embed/";
+
+      if (url.includes("youtube.com") || url.includes("youtu.be")) {
+        for (let i = 0; i < 11; i++) {
+          result += url.charAt(url.length - 11 + i);
+        }
+      } else {
+        result = "No es un enlace de YouTube";
+      }
+
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
