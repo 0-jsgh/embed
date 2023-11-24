@@ -14,9 +14,11 @@ body {background-color: #303030; text-align: center; font-size:24px;}
 }
 
 #result iframe {
-    border: 3px solid white;
+    border: 2px solid white;
     width: 80%;
     height: 70vh;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 #generar {
@@ -60,7 +62,7 @@ body {background-color: #303030; text-align: center; font-size:24px;}
       const url = document.getElementById('urlInput').value;
       let result = "youtube.com/embed/";
 
-      if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      if (url.includes("youtube.com") || url.includes("youtu.be") || url.includes("ymusicapp.com")) {
         for (let i = 0; i < 11; i++) {
           result += url.charAt(url.length - 11 + i);
           
