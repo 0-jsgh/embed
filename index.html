@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="img/logo.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <style>
 *{margin: 0; padding: 0; box-sizing:border-box;}
-body {background-color: #303030; text-align: center; font-size:24px;}
+body {background-image: url("img/textura.gif"); text-align: center; font-size:24px; height: 100vh; background-repeat: repeat-x; background-size: auto 100vh;}
 
 #result {
     color: white;
@@ -15,24 +16,29 @@ body {background-color: #303030; text-align: center; font-size:24px;}
 
 #result iframe {
     border: 2px solid white;
-    width: 80%;
+    width: 90%;
     height: 70vh;
     overflow: hidden;
     border-radius: 20px;
 }
 
-#generar {
-    font-size: 20px;
+#generar, #botonTexto {
+    font-size: 18px;
     background-color: black;
     font-weight: bold;
     color: white;
-    width: 250px;
+    width: 270px;
+    display: inline-block;
     margin: 0 auto; padding: 10px 0;
     border-radius: 12px;
     border:2px solid white;
 }
 
-#generar:hover {
+#botonTexto {
+  width: 330px;
+}
+
+#generar:hover, #botonTexto:hover {
     background-color: white;
     color:black;
     border: 2px black solid;
@@ -66,15 +72,14 @@ body {background-color: #303030; text-align: center; font-size:24px;}
         for (let i = 0; i < 11; i++) {
           result += url.charAt(url.length - 11 + i);
           
-        } result = '<iframe width="100%" src="https://www.' + result + '" frameborder="0" allowfullscreen></iframe> <p>'+result+'</p>';
+        } result = '<iframe width="100%" src="https://www.' + result + '" frameborder="0" allowfullscreen></iframe> <button id="botonTexto" onclick="copiarAlPortapapeles()">'+result+'</button>';
       } else {
         result = "No es un enlace de YouTube";
       }
 
       document.getElementById('result').innerHTML = result;
     }
-  </script>
-    <script>
+
     function acorVideo1() {
       const url = document.getElementById('urlInput').value;
       let result = "youtube.com/embed/";
@@ -85,6 +90,24 @@ body {background-color: #303030; text-align: center; font-size:24px;}
         }
         window.open('https://' + result, '_blank');
       }
+    }
+
+    function copiarAlPortapapeles() {
+      // Seleccionar el elemento que contiene el texto
+      var boton = document.getElementById('botonTexto');
+
+      // Crear un rango de selección
+      var rango = document.createRange();
+      rango.selectNode(boton);
+
+      // Seleccionar el texto dentro del rango
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(rango);
+      
+      document.execCommand('copy');
+
+      // Limpiar la selección
+      window.getSelection().removeAllRanges();
     }
   </script>
 </body>
