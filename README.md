@@ -1,2 +1,2 @@
 # y_embed
-toma un enlace de youtube y genera un embed
+ingresa un enlace normal de youtube y genera una version incrustada Embed
