@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <style>
 *{margin: 0; padding: 0; box-sizing:border-box;}
-body {background-color: #303030; text-align: center;}
-
-h1{
-    color: white;
-    margin: 15px 0;
-}
+body {background-color: #303030; text-align: center; font-size:24px;}
 
 #result {
-    font-size:24px;
-    height: 24px;
     color: white;
     width: 90%;
     margin: 20px auto;
     overflow:hidden;
+}
+
+#result iframe {
+    border: 3px solid white;
+    width: 80%;
+    height: 70vh;
 }
 
 #generar {
@@ -42,7 +41,7 @@ h1{
     border: 2px solid black;
     border-radius: 20px;
     width:90%;
-    margin: 10px 0; padding:12px;
+    margin: 10px 0; padding:10px;
     text-align: center;
 }
         
@@ -51,8 +50,7 @@ h1{
 </head>
 <body>
     
-  <h1>YouTube Embed</h1>
-  <input type="text" id="urlInput" placeholder="Ingrese enlace...">
+  <input type="text" id="urlInput" placeholder="Ingrese Texto...">
   <button onclick="acorVideo0()" id="generar">Generar</button>
   <button onclick="acorVideo1()" id="generar">Abrir</button>
   <div id="result"></div>
@@ -66,12 +64,12 @@ h1{
         for (let i = 0; i < 11; i++) {
           result += url.charAt(url.length - 11 + i);
           
-        }
+        } result = '<iframe width="100%" src="https://www.' + result + '" frameborder="0" allowfullscreen></iframe> <p>'+result+'</p>';
       } else {
         result = "No es un enlace de YouTube";
       }
 
-      document.getElementById('result').innerText = result;
+      document.getElementById('result').innerHTML = result;
     }
   </script>
     <script>
