@@ -65,12 +65,12 @@ body {background-image: url("img/textura.gif"); text-align: center; font-size:20
       if (url.includes("?list=") || url.includes("&list=")) {
         const codigoLista = obtenerCodigoLista(url+"&");
         result += 'videoseries?list=' + codigoLista
-        result = '<iframe width="100%" src="https://www.'+ result + '" frameborder="0" allowfullscreen></iframe> <p>Copiar:</p><button id="botonTexto" onclick="copiarAlPortapapeles()">'+result+'</button>';
+        result = '<iframe width="100%" src="https://www.'+ result + '" frameborder="0" allowfullscreen></iframe><button id="botonTexto" onclick="copiarAlPortapapeles()">'+result+'</button>';
       }
       else if (url.includes("youtube.com") || url.includes("youtu.be") || url.includes("ymusicapp.com"))
       {
         for (let i = 0; i < 11; i++) {result += url.charAt(url.length - 11 + i);}
-         result = '<iframe width="100%" src="https://www.' + result + '" frameborder="0" allowfullscreen></iframe> <p>Copiar:</p><button id="botonTexto" onclick="copiarAlPortapapeles()">'+result+'</button>';
+         result = '<iframe width="100%" src="https://www.' + result + '" frameborder="0" allowfullscreen></iframe><button id="botonTexto" onclick="copiarAlPortapapeles()">'+result+'</button>';
       }
       else {
         result = "No es un enlace de YouTube";
